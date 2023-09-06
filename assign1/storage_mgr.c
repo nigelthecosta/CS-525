@@ -116,7 +116,7 @@ RC readBlock(int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 
     	//if seeking the file ptr is successful then read the page into memPage
 
-    fseek(fHandle->mgmtInfo, sizeof(char) * PAGE_SIZE * pageNum, SEEK_SET);
+    fseek(fHandle->mgmtInfo, sizeof(char) * PAGE_SIZE * (pageNum+1), SEEK_SET);
 
     fread(memPage, sizeof(char), PAGE_SIZE, fHandle->mgmtInfo);
 
@@ -125,6 +125,11 @@ RC readBlock(int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 
     return RC_OK;
 } //end readBlock
+
+
+
+
+
 
 int getBlockPos (SM_FileHandle *fHandle)
 {
@@ -202,6 +207,66 @@ RC writeBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
         }
     else
     {
+		fseek(fHandle->mgmtInfo,(pageNum+1)*PAGE_SIZE,SEEK_SET);
+
+		fwrite(memPage,PAGE_SIZE,1,fHandle->mgmtInfo);
+
+		fHandle->curPagePos = pageNum;
+
+		return RC_OK;
 
     }
+}
+
+RC writeCurrentBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
+{
+	//write on the current block
+	if(RC_OK == writeBlock(getBlockPos(fHandle),fHandle,memPage))
+		return RC_OK;
+	else
+		return RC_WRITE_FAILED;
+}
+
+
+extern RC appendEmptyBlock (SM_FileHandle *fHandle)
+{
+  
+	SM_PageHandle emptyBlock = (SM_PageHandle)calloc(PAGE_SIZE, sizeof(char));
+	
+	
+	int isSeekSuccess = fseek(pageFile, 0, SEEK_END);
+	
+	if( isSeekSuccess == 0 ) {
+		// Writing an empty page to the file
+		fwrite(emptyBlock, sizeof(char), PAGE_SIZE, pageFile);
+	} else {
+		free(emptyBlock);
+		return RC_WRITE_FAILED;
+	}
+	
+	
+	free(emptyBlock);
+	
+	fHandle->totalNumPages++;
+	return RC_OK;
+}
+
+
+
+extern RC ensureCapacity (int numberOfPages, SM_FileHandle *fHandle)
+{
+
+   FILE *fpointer;
+
+   fpointer = fHandle->mgmtInfo;
+
+   if (fHandle->totalNumPages>numberOfPages) 
+   {
+      fHandle->totalNumPages = numberOfPages;
+      appendEmptyBlock(fHandle);
+      printf("Appending empty block....\n");
+
+    }
+
+  return RC_OK;
 }
