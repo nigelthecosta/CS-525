@@ -9,7 +9,7 @@ Rajanika Debnath <br>
 Nirbhay Rajgor <br>
 Zeal Patel <br>
 
-Nigel D'Costa - Implemented all the read functions and a few test cases. <br>
+Nigel D'Costa - Implemented all the read functions and a few test cases.  
 Vaishnavi Kadam - Implemented write functions <br>
 Rajanika Debnath - Implemented the file creation and handling methods  <br>
 Nirbhay Rajgor - Implemented the append block and ensure capacity methods <br>
