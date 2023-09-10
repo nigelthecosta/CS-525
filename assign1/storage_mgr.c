@@ -153,7 +153,7 @@ int getBlockPos (SM_FileHandle *fHandle)
 }
 
 
-//Read the first block of the file to memPage
+//Read the first Page of the file to memPage
 RC readFirstBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
     if(readBlock(0,fHandle,memPage)==RC_OK)
@@ -167,7 +167,7 @@ RC readFirstBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 }
 
 
-//read the previous Block in a File
+//read the previous Page in a File
 RC readPreviousBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
 	if(readBlock(getBlockPos(fHandle)-1,fHandle,memPage)== RC_OK)
@@ -180,7 +180,7 @@ RC readPreviousBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
     }
 }
 
-//read current Block in a file
+//read current Page in a file
 RC readCurrentBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
 	if(readBlock(getBlockPos(fHandle),fHandle,memPage) == RC_OK)
@@ -193,7 +193,7 @@ RC readCurrentBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
     }
 }
 
-//read next Block in a file
+//read next Page in a file
 RC readNextBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
 	if(readBlock(getBlockPos(fHandle),fHandle,memPage) == RC_OK)
@@ -206,7 +206,7 @@ RC readNextBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
     }
 }
 
-//read the last Block in a file
+//read the last Page in a file
 RC readLastBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
 	if(readBlock(fHandle->totalNumPages - 1,fHandle,memPage)== RC_OK)
@@ -225,7 +225,7 @@ RC readLastBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 
 
 
-//Write a data into a block specified by pageNum
+//Write a data into a page specified by pageNum
 RC writeBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
     if(fHandle->totalNumPages<pageNum||pageNum<0)
@@ -248,7 +248,7 @@ RC writeBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 
 
 
-//Write data into block currently pointed at by the file pointer
+//Write data into page currently pointed at by the file pointer
 RC writeCurrentBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
 	//write on the current block
@@ -260,7 +260,7 @@ RC writeCurrentBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 
 
 
-//Append empty block onto the file
+//Append empty page onto the file
 extern RC appendEmptyBlock (SM_FileHandle *fHandle)
 {
   FILE *filePointer;
