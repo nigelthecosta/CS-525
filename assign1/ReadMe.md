@@ -9,14 +9,19 @@ Rajnika Debnath
 Nirbhay Rajgor
 Zeal Patel
 
+Nigel D'Costa - Implemented all the read functions and a few test cases.
+Vaishnavi Kadam - Implemented write functions
+Rajnika Debnath - Implemented the file creation and handling methods 
+Nirbhay Rajgor - Implemented the append block and ensure capacity methods
+Zeal Patel - Implemented make file and a few test cases.
+
+Apart from this, all members actively took part in testing and debugging the code.
 
 Description
 ---------------------------------------------------------
 
-Implementing the interface of a storage manager that allows read/writing of blocks to/from a file on disk into memory.
-
-
-
+Implementation of a simple storage manager - a module that is capable of reading blocks
+from a file on disk into memory and writing blocks from memory to a file on disk.
 
 
 How to run
@@ -27,6 +32,7 @@ How to run
 2. Navigate to assign1 folder.
 
 3. Use make command to execute the Makefile, type make
+4. 
 
 
 
