@@ -3,11 +3,11 @@ Group 29 - Assignment 1 - Storage Manager
 
 Team Members: - Group 29
 -----------------------------------------------------------
-Nigel D'Costa
-Vaishnavi Kadam
-Rajanika Debnath
-Nirbhay Rajgor
-Zeal Patel
+Nigel D'Costa <br>
+Vaishnavi Kadam <br>
+Rajanika Debnath <br>
+Nirbhay Rajgor <br>
+Zeal Patel <br>
 
 Nigel D'Costa - Implemented all the read functions and a few test cases.
 Vaishnavi Kadam - Implemented write functions
