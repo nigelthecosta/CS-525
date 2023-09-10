@@ -32,7 +32,8 @@ How to run
 2. Navigate to assign1 folder.
 
 3. Use make command to execute the Makefile, type make
-4. 
+
+4. To run additional test cases, type make test_case2
 
 
 
