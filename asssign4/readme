@@ -1,0 +1,114 @@
+Group 29 - Assignment 4 - B+ Tree Manager 
+
+
+Team Members: - Group 29
+
+-----------------------------------------------------------
+Nigel D'Costa
+Vaishnavi Kadam
+Rajanika Debnath
+Nirbhay Rajgor
+Zeal Patel
+
+Nigel D'Costa - Implemented B tree functions
+Rajanika Debnath - Implemented  the access functions
+Vaishnavi Kadam - Implemented some of the index access functions
+Nirbhay Rajgor - Implemented some of the index access functions
+Zeal Patel - Implemented some of the index access functions
+
+Apart from this, all members actively took part in testing and debugging the code.
+
+
+
+Description
+
+---------------------------------------------------------
+
+
+The goal of this assignment is to implement a B+-tree index. The index should be backed up by a page file and
+pages of the index should be accessed through your buffer manager. 
+
+
+How to run
+
+-----------------------------------------------------------
+
+
+1. Open terminal and Clone from BitBucket to the required location.
+
+2. Navigate to assignment4 folder.
+
+3. Use make command to execute btree manager, test_assign4_1, run:
+	$ make all
+
+  then run
+  $ ./test_assign4_1
+
+4. Use make command to execute test expr, test_expr,
+	$ make test_expr
+
+  then run
+  $ ./test_expr
+
+5. To clean,
+	$ make clean
+
+
+
+
+
+
+
+----------B Tree Functions------------
+
+1) initIndexManager():
+  Used to initialize Btree.
+
+2) shutdownIndexManager():
+  Used to shut down index manager
+
+3) createBtree():
+  Used to allocate memory to Btree
+
+
+4) openBtree():
+  Opens Btree pagefile
+
+5) closeBtree():
+  Used to free memory allocated to Btree
+
+6) deleteBtree():
+  Used to delete Btree records
+
+
+---------Access Functions------------
+
+7) getNumNodes():
+  Used to give the number of nodes in the tree
+
+8) getNumEntries():
+  Gives the number of entries in a Btree
+
+9) getKeyType():
+  Used to return the key type whether int, string etc
+
+--------Index Access Functions----------
+
+10) findKey():
+   Used to find the position of the key
+
+11) insertKey():
+   Used to insert key into the btree
+
+12) deleteKey():
+   Used to delete a key from the Btree
+
+13) openTreeScan():
+   Used to scan the trees
+
+14) nextEntry():
+   Used to read the next entry into the Btree
+
+
+15) closeTreeScan():
+   Used to close the scanning of the tree elements
